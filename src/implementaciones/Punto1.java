@@ -30,8 +30,4 @@ public class Punto1 {
 	    // Código del método
 //	}
 	
-	public static void main(String[] args) {
-		// Codigo para probar la consigna
-	}
-	
 }

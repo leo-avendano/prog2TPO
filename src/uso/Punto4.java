@@ -27,8 +27,5 @@ public class Punto4 {
 	    // Código del método
 //	}
 	
-	public static void main(String[] args) {
-		// Codigo para probar el 
-	}
-	
+
 }

@@ -27,9 +27,5 @@ public class Punto10 {
 //	public TipoDeRetorno nombreDelMetodo(TipoDeParametro parametro1, TipoDeParametro parametro2) throws Excepcion1, Excepcion2 {
 	    // Código del método
 //	}
-	
-	public static void main(String[] args) {
-		// Codigo para probar el 
-	}
-	
+
 }

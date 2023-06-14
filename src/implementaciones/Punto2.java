@@ -36,8 +36,4 @@ public class Punto2 {
 	    // Código del método
 //	}
 	
-	public static void main(String[] args) {
-		// Codigo para probar el 
-	}
-	
 }

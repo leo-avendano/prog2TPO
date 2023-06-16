@@ -1,21 +1,57 @@
 package implementaciones;
 
-public class Punto2 {
-	/** Consigna
-	 *   Se define un nuevo TDA denominado MultiPilaTDA basado en PilaTDA, 
-	 * con la particularidad de recibir una PilaTDA por parámetro al apilar 
-	 * (la misma debe apilarse a continuación de la multipila), y otra al desapilar 
-	 * (la misma debe chequear que los valores tope de la multipila coincidan para 
-	 * desapilar, sino no debe hacer nada). Tanto en el método apilar como en el 
-	 * método desapilar, ambas pilas vienen inicializadas y contienen cualquier 
-	 * cantidad de elementos (incluso cero). El método tope devuelve una PilaTDA 
-	 * con los primeros elementos de la multipila, se recibe por parámetro un número 
-	 * mayor o igual que cero, que representa la cantidad de ellos (de recibir un número 
-	 * superior a la cantidad de elementos de la multipila, debe devolver todos). 
-	 * Se solicita realizar la presente implementación con el TDA ya visto PilaTDA,
-	 * o en su defecto con estructuras dinámicas (no puede realizarse la implementación 
-	 * con estructuras estáticas). Su especificación se muestra en el anexo.
-	 */
+import tda.PilaTDA;
+import tdas.MultiPilaTDA;
+import uso.PilaHelper;
+import imple.Pila;
+
+public class Punto2 implements MultiPilaTDA {
+	
+	int[] valores;
+	int indice;
+
+	public void apilar(PilaTDA valores) {
+		PilaTDA clon = PilaHelper.clonar(valores);
+		while(!clon.pilaVacia()) {
+			int valor = clon.tope();
+			clon.desapilar();
+			this.valores[indice] = valor;
+			indice++;
+		}
+	}
+
+	public void desapilar(PilaTDA valores) {
+		PilaTDA clon = PilaHelper.clonar(valores);
+		
+	}
+
+	public PilaTDA tope(int cantidad) {
+		int i = 0;
+		PilaTDA resultado = new Pila();
+		resultado.inicializarPila();
+		if (indice <= cantidad) {
+			while (i < indice) {
+				resultado.apilar(this.valores[indice - (i+1)]);
+				i++;
+			}
+		} else {
+			while (i < cantidad) {
+				resultado.apilar(this.valores[cantidad - (i+1)]);
+				i++;
+			}
+		}
+		return resultado;
+	}
+
+	public void inicializarPila() {
+		this.valores = new int[100];
+		this.indice = 0;
+	}
+
+	public boolean pilaVacia() {
+		return this.indice == 0;
+	}
+
 	
 	/**
 	 * Descripción de la tarea.

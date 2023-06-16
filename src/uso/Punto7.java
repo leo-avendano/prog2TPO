@@ -1,4 +1,9 @@
 package uso;
+import tda.DiccionarioMultipleTDA;
+import tda.ConjuntoTDA;
+import tda.ColaTDA;
+import imple.Conjunto;
+import imple.Cola;
 
 public class Punto7 {
 	/** Consigna
@@ -21,9 +26,29 @@ public class Punto7 {
 	 *
 	 * @costo Descripción del costo computacional o complejidad del método.
 	 */
-//	public TipoDeRetorno nombreDelMetodo(TipoDeParametro parametro1, TipoDeParametro parametro2) throws Excepcion1, Excepcion2 {
-	    // Código del método
-//	}
+	static public ColaTDA valores(DiccionarioMultipleTDA d) {
+		ConjuntoTDA preExistentes = new Conjunto();
+		preExistentes.inicializarConjunto();
+		ColaTDA resultado = new Cola();
+		resultado.inicializarCola();
+		
+		ConjuntoTDA claves = d.claves();
+		while(!claves.conjuntoVacio()) {
+			int clave = claves.elegir();
+			claves.sacar(clave);
+			ConjuntoTDA valores = d.recuperar(clave);
+			while (!valores.conjuntoVacio()) {
+				int valor = valores.elegir();
+				valores.sacar(valor);
+				if (!preExistentes.pertenece(valor)) {
+					preExistentes.agregar(valor);
+					resultado.acolar(valor);
+				}
+			}
+		}
+		
+		return resultado;
+	}
 	
 
 }

@@ -1,12 +1,9 @@
 package uso;
+import tda.PilaTDA;
+import tda.DiccionarioSimpleTDA;
+import imple.DiccionarioSimple;
 
 public class Punto6 {
-	/** Consigna
-	 * Se define un método que reciba una PilaTDA y devuelva un DiccionarioSimpleTDA, 
-	 * en el cual se guardarán los elementos de la pila como claves, y la cantidad de 
-	 * apariciones de dicho elemento en la pila, como valores.
-	 */
-	
 	/**
 	 * Descripción de la tarea.
 	 *
@@ -22,9 +19,27 @@ public class Punto6 {
 	 *
 	 * @costo Descripción del costo computacional o complejidad del método.
 	 */
-//	public TipoDeRetorno nombreDelMetodo(TipoDeParametro parametro1, TipoDeParametro parametro2) throws Excepcion1, Excepcion2 {
-	    // Código del método
-//	}
 	
-
+	static public DiccionarioSimpleTDA contadorPila(PilaTDA p) {
+		PilaTDA pila = PilaHelper.clonar(p);
+		DiccionarioSimpleTDA resultado = new DiccionarioSimple();
+		resultado.inicializarDiccionario();
+		
+		while(!pila.pilaVacia()) {
+			int valor = pila.tope();
+			int contador = 1;
+			
+			if (resultado.claves().pertenece(valor)) {
+				contador = resultado.recuperar(valor);
+				contador++;
+			}
+			
+			resultado.agregar(valor, contador);
+			
+			pila.desapilar();
+		}
+		
+		return resultado;
+	}
+ 
 }

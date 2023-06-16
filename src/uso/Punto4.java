@@ -1,5 +1,10 @@
 package uso;
 
+import tda.ColaTDA;
+import tda.ConjuntoTDA;
+import imple.Conjunto;
+import imple.Cola;
+
 public class Punto4 {
 	/** Consigna
 	 *   Se define un método que reciba una ColaTDA y devuelva una nueva 
@@ -23,9 +28,22 @@ public class Punto4 {
 	 *
 	 * @costo Descripción del costo computacional o complejidad del método.
 	 */
-//	public TipoDeRetorno nombreDelMetodo(TipoDeParametro parametro1, TipoDeParametro parametro2) throws Excepcion1, Excepcion2 {
-	    // Código del método
-//	}
-	
-
+	static public ColaTDA sinRepetidos(ColaTDA c) {
+		ConjuntoTDA preExistentes = new Conjunto();
+		preExistentes.inicializarConjunto();
+		ColaTDA resultado = new Cola();
+		resultado.inicializarCola();
+		ColaTDA cola = ColaHelper.clonar(c);
+		
+		while(!cola.colaVacia()) {
+			int valor = cola.primero();
+			if (!preExistentes.pertenece(valor)) {
+				preExistentes.agregar(valor);
+				resultado.acolar(valor);
+			}
+			cola.desacolar();
+		}
+		
+		return resultado;
+	}
 }

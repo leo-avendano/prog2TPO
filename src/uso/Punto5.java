@@ -1,12 +1,9 @@
 package uso;
+import tda.ConjuntoTDA;
+import tda.ColaTDA;
+import imple.Conjunto;
 
 public class Punto5 {
-	/** Consigna
-	 * Se define un método que reciba una PilaTDA y una ColaTDA y devuelva un ConjuntoTDA 
-	 * con los elementos comunes de la pila y de la cola.
-	 */
-	
-	
 	/**
 	 * Descripción de la tarea.
 	 *
@@ -22,9 +19,22 @@ public class Punto5 {
 	 *
 	 * @costo Descripción del costo computacional o complejidad del método.
 	 */
-	public ConjuntoTDA comunesColaConjunto(ColaTDA cola, ConjuntoTDA conjunto) {
-			
+	static public ConjuntoTDA comunesColaConjunto(ColaTDA cola, ConjuntoTDA conjunto) {
+		ColaTDA colaClon = ColaHelper.clonar(cola);
+		ConjuntoTDA conjuntoClon = ConjuntoHelper.clonar(conjunto);
+		
+		ConjuntoTDA comunes = new Conjunto();
+		comunes.inicializarConjunto();
+		
+		while(!colaClon.colaVacia() && !conjuntoClon.conjuntoVacio()) {
+			int valor = colaClon.primero();
+			colaClon.desacolar();
+			if (conjuntoClon.pertenece(valor)) {
+				comunes.agregar(valor);
+				conjuntoClon.sacar(valor);
+			} 
+		}
+		
+		return comunes;
 	}
-	
-
 }

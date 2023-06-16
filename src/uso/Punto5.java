@@ -22,9 +22,9 @@ public class Punto5 {
 	 *
 	 * @costo Descripción del costo computacional o complejidad del método.
 	 */
-//	public TipoDeRetorno nombreDelMetodo(TipoDeParametro parametro1, TipoDeParametro parametro2) throws Excepcion1, Excepcion2 {
-	    // Código del método
-//	}
+	public ConjuntoTDA comunesColaConjunto(ColaTDA cola, ConjuntoTDA conjunto) {
+			
+	}
 	
 
 }

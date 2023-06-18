@@ -5,19 +5,21 @@ import imple.Conjunto;
 
 public class Punto5 {
 	/**
-	 * Descripción de la tarea.
+	 * Devuelve un ConjuntoTDA con los elementos comunes de la pila y de la cola recibidas por argumento.
+	 * Recorre la Cola y por cada valor revisa si existe en el Conjunto parametro. Si existe, lo almacena
+	 * en el Conjunto resultante. Caso contrario, lo ignora.
 	 *
-	 * @param parametro1 Descripción del primer parámetro.
-	 * @param parametro2 Descripción del segundo parámetro.
-	 * @return Descripción del valor de retorno.
-	 * @throws Excepcion1 Descripción de la excepción lanzada en caso de algún error.
-	 * @throws Excepcion2 Descripción de otra excepción lanzada en caso de algún error.
+	 * @param cola Cola con valores que se quiere saber si tiene valores en comun contra un conjunto.
+	 * @param conjunto Conjunto contra el cual se va a comparar la Cola.
+	 * @return Conjunto con los valores comunes entre los dos argumentos.
 	 *
-	 * @precondiciones Descripción de las precondiciones que deben cumplirse.
+	 * @precondiciones La Cola y el Conjunto estan inicializados.
 	 *
-	 * @postcondiciones Descripción de las postcondiciones después de la ejecución.
+	 * @postcondiciones Ninguno.
 	 *
-	 * @costo Descripción del costo computacional o complejidad del método.
+	 * @costo Polinomica. Revisar si un conjunto tiene un valor tiene costo lineal. Recorrer la Cola
+	 * tiene costo lineal. Como estamos revisando si existe el valor del tope de la Cola en el Conjunto
+	 * el costo es lineal x lineal.
 	 */
 	static public ConjuntoTDA comunesColaConjunto(ColaTDA cola, ConjuntoTDA conjunto) {
 		ColaTDA colaClon = ColaHelper.clonar(cola);

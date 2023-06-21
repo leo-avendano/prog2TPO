@@ -1,5 +1,9 @@
 package uso;
 
+import imple.Conjunto;
+import tda.ConjuntoTDA;
+import tdas.GrafoTDA;
+
 public class Punto10 {
 	/** Consigna
 	 *   Se define un método que reciba un GrafoTDA y dos enteros que representen vértices, 
@@ -10,22 +14,36 @@ public class Punto10 {
 	
 	
 	/**
-	 * Descripción de la tarea.
+	 * Obtiene conjunto de vértices puente definidos entre dos vértices pasados por parámetro.
 	 *
-	 * @param parametro1 Descripción del primer parámetro.
-	 * @param parametro2 Descripción del segundo parámetro.
-	 * @return Descripción del valor de retorno.
-	 * @throws Excepcion1 Descripción de la excepción lanzada en caso de algún error.
-	 * @throws Excepcion2 Descripción de otra excepción lanzada en caso de algún error.
+	 * @param grafo - Grafo en el cual se debe verificar
+	 * @param vertice1 - valor del primer vértice en el cual checkear. 
+	 * @param vertice2 - valor del segundo vértice en el cual checkear.
+	 * @return Conjunto con los valores de los vértices puente.
 	 *
-	 * @precondiciones Descripción de las precondiciones que deben cumplirse.
+	 * @precondiciones El grafo pasado en el argumento debe estar inicializado. Los parámetros `vertice1` y `vertice2` deben ser vértices existentes en el grafo dado.
 	 *
-	 * @postcondiciones Descripción de las postcondiciones después de la ejecución.
+	 * @postcondiciones Ninguna.
 	 *
+	 * TODO:
 	 * @costo Descripción del costo computacional o complejidad del método.
 	 */
-//	public TipoDeRetorno nombreDelMetodo(TipoDeParametro parametro1, TipoDeParametro parametro2) throws Excepcion1, Excepcion2 {
-	    // Código del método
-//	}
+	public ConjuntoTDA obtenerVerticesPuente(GrafoTDA grafo, int vertice1, int vertice2)  {
+		ConjuntoTDA verticesPuente = new Conjunto();
+		verticesPuente.inicializarConjunto();
+		
+		ConjuntoTDA nodos = grafo.vertices();
+		while(!nodos.conjuntoVacio()) {
+			int posiblePuente = nodos.elegir();
+			boolean existeArista1 = grafo.existeArista(vertice1, posiblePuente);
+			boolean existeArista2 = grafo.existeArista(posiblePuente, vertice2);
+			if(existeArista1 && existeArista2) {
+				verticesPuente.agregar(posiblePuente);
+			}
+			nodos.sacar(posiblePuente);
+		}
+		
+		return verticesPuente;
+	}
 
 }

@@ -25,8 +25,7 @@ public class Punto10 {
 	 *
 	 * @postcondiciones Ninguna.
 	 *
-	 * TODO:
-	 * @costo Descripción del costo computacional o complejidad del método.
+	 * @costo Costo Lineal, ya que el mayor costo residirá en `grafo.vertices()` que creará internamente un `Conjunto` e irá agregando los elementos correspondientes iterando.
 	 */
 	public ConjuntoTDA obtenerVerticesPuente(GrafoTDA grafo, int vertice1, int vertice2)  {
 		ConjuntoTDA verticesPuente = new Conjunto();

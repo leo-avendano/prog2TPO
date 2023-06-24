@@ -1,31 +1,47 @@
 package uso;
 
-public class Punto4 {
-	/** Consigna
-	 *   Se define un método que reciba una ColaTDA y devuelva una nueva 
-	 * ColaTDA con los elementos de la original, sin ninguna repetición. 
-	 * Se debe dejar el primer representante de cada uno de los repetidos, 
-	 * respetando el orden en que aparecen todos los elementos en la original.
-	 */
-	
-	/**
-	 * Descripción de la tarea.
-	 *
-	 * @param parametro1 Descripción del primer parámetro.
-	 * @param parametro2 Descripción del segundo parámetro.
-	 * @return Descripción del valor de retorno.
-	 * @throws Excepcion1 Descripción de la excepción lanzada en caso de algún error.
-	 * @throws Excepcion2 Descripción de otra excepción lanzada en caso de algún error.
-	 *
-	 * @precondiciones Descripción de las precondiciones que deben cumplirse.
-	 *
-	 * @postcondiciones Descripción de las postcondiciones después de la ejecución.
-	 *
-	 * @costo Descripción del costo computacional o complejidad del método.
-	 */
-//	public TipoDeRetorno nombreDelMetodo(TipoDeParametro parametro1, TipoDeParametro parametro2) throws Excepcion1, Excepcion2 {
-	    // Código del método
-//	}
-	
+import tda.ColaTDA;
+import tda.ConjuntoTDA;
+import imple.Conjunto;
+import imple.Cola;
 
+public class Punto4 {
+	/**
+	 * Reciba una ColaTDA y devuelva una nueva ColaTDA con los elementos de la original, 
+	 * sin ninguna repetición. Deja el primer representante de cada uno de los repetidos, 
+	 * respetando el orden en que aparecen todos los elementos en la original.
+	 * Esto se logra usando un Conjunto auxiliar donde se van guardando los valores que ya
+	 * se desapilaron de la Cola que ingreso como parametro. Si el valor ya existe en el 
+	 * Conjunto, no se guarda en la Cola resultante. En el caso contrario, se guarda en el
+	 * Conjunto y en la Cola resultante.
+	 *
+	 * @param c La Cola base que se quiere sin repetidos.
+	 * @return La Cola que se paso como argumento pero sin repetidos.
+	 *
+	 * @precondiciones La Cola del argumento debe estar inicializada.
+	 *
+	 * @postcondiciones Ninguna.
+	 *
+	 * @costo Polinomica. Por cada elemento de la Cola se revisa en el conjunto de repetidos
+	 * si ya existe. El tamaño del conjunto depende de la varianza de la Cola ingresada y 
+	 * revisar si ya existe el valor tiene costo lineal. Asique es lineal x lineal.
+	 */
+	static public ColaTDA sinRepetidos(ColaTDA c) {
+		ConjuntoTDA preExistentes = new Conjunto();
+		preExistentes.inicializarConjunto();
+		ColaTDA resultado = new Cola();
+		resultado.inicializarCola();
+		ColaTDA cola = ColaHelper.clonar(c);
+		
+		while(!cola.colaVacia()) {
+			int valor = cola.primero();
+			if (!preExistentes.pertenece(valor)) {
+				preExistentes.agregar(valor);
+				resultado.acolar(valor);
+			}
+			cola.desacolar();
+		}
+		
+		return resultado;
+	}
 }

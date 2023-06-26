@@ -1,28 +1,37 @@
 package uso;
 
+import tdas.ABBTDA;
+
 public class Punto9 {
 	/** Consigna
 	 * Se define un método que calcule la cantidad de hojas con un valor par de un ABB.
 	 */
 	
 	/**
-	 * Descripción de la tarea.
+	 * Calcula la suma de las hojas pares de un ABB dado.
+	 * 
+	 * La función es recursiva. Toma el abb inicializado como parámetro, e irá tomando los hijos a medida que la función se vuelva a llamar a sí misma.
+	 * Si comprueba que es una hoja, y que su valor es par, devuelve dicho valor para la suma.
+	 * Si no es par, o bien si no es una hoja, realiza el cálculo de sus hijos.
 	 *
-	 * @param parametro1 Descripción del primer parámetro.
-	 * @param parametro2 Descripción del segundo parámetro.
-	 * @return Descripción del valor de retorno.
-	 * @throws Excepcion1 Descripción de la excepción lanzada en caso de algún error.
-	 * @throws Excepcion2 Descripción de otra excepción lanzada en caso de algún error.
+	 * @param abb ABB dado.
+	 * @return suma de valores pares de las hojas del ABB dado.
 	 *
-	 * @precondiciones Descripción de las precondiciones que deben cumplirse.
+	 * @precondiciones El abb dado por parámetro debe encontrarse inicializado.
 	 *
-	 * @postcondiciones Descripción de las postcondiciones después de la ejecución.
+	 * @postcondiciones Ninguna.
 	 *
-	 * @costo Descripción del costo computacional o complejidad del método.
+	 * @costo N/A. La función es recursiva.
 	 */
-//	public TipoDeRetorno nombreDelMetodo(TipoDeParametro parametro1, TipoDeParametro parametro2) throws Excepcion1, Excepcion2 {
-	    // Código del método
-//	}
+	public int sumaHojasParesABB(ABBTDA abb) {
+	    if(abb.arbolVacio()) {
+	    	return 0;
+	    } else if (abb.hijoDer().arbolVacio() && abb.hijoIzq().arbolVacio() && abb.raiz() % 2 == 0) {
+	    	return abb.raiz();
+	    } else {
+	    	return sumaHojasParesABB(abb.hijoDer()) + sumaHojasParesABB(abb.hijoIzq());
+	    }
+	}
 	
 
 }

@@ -43,10 +43,10 @@ public class Punto3 {
 	     * La cola de prioridad se encarga de mantener los elementos ordenados según su prioridad
 	     *  (en este caso, la prioridad es la clave).
 	     * @tarea Agrega una clave y su respectivo valor al diccionario.
-	     * @param clave La clave a agregar.
+	     * @param clave La clave a agregar
 	     * @param valor El valor asociado a la clave.
-	     * @precondiciones Que la cola este inicializada.
-	     * @postcondiciones la cola tiene agregado la clave y el valor
+	     * @precondiciones Que la cola y el diccionario este inicializada.
+	     * @postcondiciones no hay postcondiciones
 	     * @costo Constante. El método utiliza el método acolarPrioridad() de ColaPrioridadTDA, 
 	     * el cual tiene un costo constante para encolar un elemento en la cola de prioridad.
 	     */
@@ -64,8 +64,8 @@ public class Punto3 {
 	     *  logrando así eliminar la clave y mantener el resto de los elementos del diccionario.
 	     * @tarea Elimina una clave y su valor asociado del diccionario.
 	     * @param clave: La clave a eliminar.
-	     * @precondiciones una clave para ser eliminada en la cola
-	     * @postcondiciones la clave es eliminada de la cola
+	     * @precondiciones una clave para ser eliminada en la cola. Cola y dic inicializados
+	     * @postcondiciones no hay postcondiciones
 	     * @costo Lineal. El método recorre la cola de prioridad una vez. 
 	     * En el peor caso, si la clave a eliminar se encuentra al final de la cola, 
 	     * deberá desencolar todos los elementos y volver a encolarlos en la cola auxiliar, 
@@ -99,8 +99,9 @@ public class Punto3 {
 	     * @tarea Recupera el valor asociado a una clave del diccionario.
 	     * @param clave: La clave cuyo valor se desea recuperar.
 	     * @return El valor asociado a la clave especificada.
-	     * @precondiciones La clave especificiada debe existir en el diccionario
-	     * @postcondiciones Se recupera el valor asociado a la clave especificada.
+	     * @precondiciones La clave especificiada debe existir en el diccionario. La cola y el dic
+	     * deben estar inicializados
+	     * @postcondiciones No hay postcondiciones
 	     * @costo Lineal. El método también recorre la cola de prioridad una vez. 
 	     * En el peor caso, si la clave buscada se encuentra al final de la cola, 
 	     * deberá desencolar todos los elementos y volver a encolarlos en la cola auxiliar, 
@@ -139,8 +140,7 @@ public class Punto3 {
 	     * @return Un conjunto con las claves del diccionario.
 	     * @precondiciones No tiene precondiciones. Puede llamarse en cualquier momento para obtener el conjunto
 	     * de claves presentes en el diccionario.
-	     * @postcondiciones Se devuelve un conjunto que contiene todas las claves presentes en el 
-	     * diccionario.
+	     * @postcondiciones No hay postcondiciones.
 	     * @costo Polinomico. El método recorre la cola de prioridad una vez para copiar las claves en un conjunto. 
 	     * Sin embargo, también utiliza un bucle interno para encolar los elementos en la cola auxiliar, 
 	     * lo cual se realiza en función del tamaño de la cola. 

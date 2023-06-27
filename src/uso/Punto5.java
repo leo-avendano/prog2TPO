@@ -24,7 +24,7 @@ public class Punto5 {
 	 * a Conjunto tiene costo lineal. Como se esta haciendo tres operaciones lineales de forma secuencial, 
 	 * esto tiene un costo lineal.
 	 */
-	static public ConjuntoTDA comunesColaConjunto(ColaTDA cola, PilaTDA pila) {
+	static public ConjuntoTDA comunesColaPila(ColaTDA cola, PilaTDA pila) {
 		ColaTDA colaClon = ColaHelper.clonar(cola);
 		ConjuntoTDA conjuntoCola = new Conjunto();
 		conjuntoCola.inicializarConjunto();
@@ -48,7 +48,7 @@ public class Punto5 {
 		ConjuntoTDA comunes = new Conjunto();
 		comunes.inicializarConjunto();
 		
-		while(!conjuntoCola.conjuntoVacio() && !conjuntoCola.conjuntoVacio()) {
+		while(!conjuntoCola.conjuntoVacio() && !conjuntoPila.conjuntoVacio()) {
 			int valor = conjuntoCola.elegir();
 			conjuntoCola.sacar(valor);
 			if (conjuntoPila.pertenece(valor)) {

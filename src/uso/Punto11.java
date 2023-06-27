@@ -17,7 +17,7 @@ public class Punto11 {
 	 * consideramos aristas ciclicas y revisa si existe arista entre todas las combinaciones del vertice 
 	 * de interes y las existentes en el grafo. 
 	 * Si existe arista saliente, incrementa el grado. 
-	 * Si existe arista entrande, decrementa el grado.
+	 * Si existe arista entrante, decrementa el grado.
 	 *
 	 * @param grafo - un GrafoTDA en el cual se quiere saber el grado de un vertice 
 	 * @param vertice - un integer que representa el vertice que se quiere saber su grado

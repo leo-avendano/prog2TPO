@@ -30,16 +30,15 @@ public class Punto6 {
 		
 		while(!pila.pilaVacia()) {
 			int valor = pila.tope();
+			pila.desapilar();
 			int contador = 1;
 			
 			if (resultado.claves().pertenece(valor)) {
 				contador = resultado.recuperar(valor);
 				contador++;
+			} else {
+				resultado.agregar(valor, contador);
 			}
-			
-			resultado.agregar(valor, contador);
-			
-			pila.desapilar();
 		}
 		
 		return resultado;

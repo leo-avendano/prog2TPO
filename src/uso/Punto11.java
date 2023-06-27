@@ -39,7 +39,7 @@ public class Punto11 {
 		
 		while (!vertices.conjuntoVacio()) {
 			int segundoVertice = vertices.elegir();
-			vertices.sacar(vertice);
+			vertices.sacar(segundoVertice);
 			
 			boolean existeAristaSaliente = grafo.existeArista(vertice, segundoVertice);
 			boolean existeAristaEntrante = grafo.existeArista(segundoVertice, vertice);

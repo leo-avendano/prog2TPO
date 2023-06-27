@@ -27,7 +27,7 @@ public class Punto9 {
 	    if(abb.arbolVacio()) {
 	    	return 0;
 	    } else if (abb.hijoDer().arbolVacio() && abb.hijoIzq().arbolVacio() && abb.raiz() % 2 == 0) {
-	    	return abb.raiz();
+	    	return 1;
 	    } else {
 	    	return sumaHojasParesABB(abb.hijoDer()) + sumaHojasParesABB(abb.hijoIzq());
 	    }

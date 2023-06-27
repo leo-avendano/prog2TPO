@@ -138,8 +138,7 @@ public class Punto3 {
 	     * @tarea Devuelve un conjunto con todas las claves presentes en el diccionario.
 	     * @param void
 	     * @return Un conjunto con las claves del diccionario.
-	     * @precondiciones No tiene precondiciones. Puede llamarse en cualquier momento para obtener el conjunto
-	     * de claves presentes en el diccionario.
+	     * @precondiciones La colaprioridad y el diccionario deben estar inciializados.
 	     * @postcondiciones No hay postcondiciones.
 	     * @costo Polinomico. El método recorre la cola de prioridad una vez para copiar las claves en un conjunto. 
 	     * Sin embargo, también utiliza un bucle interno para encolar los elementos en la cola auxiliar, 

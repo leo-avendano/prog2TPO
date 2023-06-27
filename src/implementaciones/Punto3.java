@@ -51,6 +51,8 @@ public class Punto3 {
 	     * el cual tiene un costo constante para encolar un elemento en la cola de prioridad.
 	     */
 	    public void agregar(int clave, int valor) {
+	    	eliminar(clave); // Eliminar la clave si ya existe para reemplazar el valor
+	    	// Si la clave ya existe, se reemplaza el valor asociado en lugar de generar una entrada nueva.
 	        colaPrioridad.acolarPrioridad(clave, valor);
 	    }
 	    
@@ -107,7 +109,7 @@ public class Punto3 {
 	    public int recuperar(int clave) {
 	        ColaPrioridadTDA colaAuxiliar = new ColaPrioridad();
 	        colaAuxiliar.inicializarCola();
-	        int valorRecuperado = 0;
+	        int valorRecuperado = 0; // Valor por defecto si la clave no existe
 	        
 	        // Desacolar elementos de la cola original y encolar en la auxiliar
 	        while (!colaPrioridad.colaVacia()) {

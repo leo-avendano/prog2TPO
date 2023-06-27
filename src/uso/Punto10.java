@@ -15,6 +15,14 @@ public class Punto10 {
 	
 	/**
 	 * Obtiene conjunto de vértices puente definidos entre dos vértices pasados por parámetro.
+	 * 
+	 * Partimos del grafo y los dos enteros de los vértices, pasados por parámetro.
+	 * Creamos un Conjunto para guardar los vértices puentes.
+	 * Obtenemos la lista de vértices del grafo, e iteramos por cada elemento. Aquí checkeamos si existe una arista
+	 * entre dicho vértice y los que fueron pasados por parámetro.
+	 * Como la condición de vértice puente requiere que éste sea "un nexo" entre los vértices pasados por parámetro,
+	 * si existen ambas aristas, agregamos al vértice puente al conjunto principal.
+	 * Una vez finalizada la iteración, devolvemos dicho conjunto.
 	 *
 	 * @param grafo - Grafo en el cual se debe verificar
 	 * @param vertice1 - valor del primer vértice en el cual checkear. 
